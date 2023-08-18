@@ -1,0 +1,30 @@
+{
+  "name": "telegram-bot-r",
+  "version": "1.0.0",
+  "description": "telegram bot build with nodejs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xct007/telegram-bot-R.git"
+  },
+  "keywords": [
+    "telegram-bot"
+  ],
+  "author": "FrierenDv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xct007/telegram-bot-R/issues"
+  },
+  "homepage": "https://github.com/xct007/telegram-bot-R#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "mongoose": "^7.4.3",
+    "telegraf": "^4.12.2"
+  }
+}
