@@ -1,2 +1,2 @@
 # telegram-bot-R
-Let's build telegram bot
+``` simple telegram bot ``` build with [Telegraf](https://github.com/telegraf/telegraf)
