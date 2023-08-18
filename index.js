@@ -1,10 +1,11 @@
 import { bot } from "./lib/connection.js";
-import { messageHandler, statesHandler } from "./handlers/index.js";
+import { messageHandler, statesHandler, custom } from "./handlers/index.js";
 
 /** @see in @link {./handlers} */
-/** You also use your function */
 messageHandler(bot);
 statesHandler(bot);
+custom(bot);
+
 
 bot.launch();
 
