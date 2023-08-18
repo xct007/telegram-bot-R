@@ -10,12 +10,12 @@ export const messageHandler = async (bot) => {
 	});
 
 	/** bot state logic */
-	bot.command("comic", async (ctx) => {
+	bot.command("image", async (ctx) => {
 		/** This is aliase for ctx */
 		const m = await msg(ctx);
 
 		/** Change the state same as command */
-		state[m.chat.id] = "comic";
+		state[m.chat.id] = "image";
 
 		/** send message to user */
 		await m.reply("Send the image now.");
