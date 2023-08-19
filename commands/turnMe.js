@@ -9,13 +9,13 @@ export default async (bot) => {
 		const inline_turnme = [];
 		for (const style of styles.sort()) {
 			inline_turnme.push(
-				Markup.button.callback(style.toUpperCase(), "turnme_" + style)
+				Markup.button.callback(style.toUpperCase(), "turnme_" + style),
 			);
 		}
 		const replyOptions = Markup.inlineKeyboard([inline_turnme]);
 		m.reply(
 			`What style you want to. Each of style can generate different 4 images variation.`,
-			{ reply_to_message_id: m.message_id, ...replyOptions }
+			{ reply_to_message_id: m.message_id, ...replyOptions },
 		);
 	});
 

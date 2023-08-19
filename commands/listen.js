@@ -15,9 +15,12 @@ export default async (bot) => {
 				delete state[m.chat.id];
 
 				await m.deleteMessage(backup_state.message_id);
-				const { message_id } = await m.reply(`Turning you, using ${backup_state["parameter"]["style"]} style`, {
-                    reply_to_message_id: m.message_id
-                });
+				const { message_id } = await m.reply(
+					`Turning you, using ${backup_state["parameter"]["style"]} style`,
+					{
+						reply_to_message_id: m.message_id,
+					},
+				);
 				/** getting image buffer that send by user in state */
 				const init_image = m.photo.url;
 
@@ -40,10 +43,10 @@ export default async (bot) => {
 					/** if api error, restore state */
 					state[m.chat.id] = backup_state;
 					return ctx.reply(message, {
-                        reply_to_message_id: m.message_id
-                    });
+						reply_to_message_id: m.message_id,
+					});
 				}
-                
+
 				await m.deleteMessage(message_id);
 
 				const media = [];
@@ -65,9 +68,12 @@ export default async (bot) => {
 				delete state[m.chat.id];
 
 				await m.deleteMessage(backup_state.message_id);
-				const { message_id } = await m.reply("Processing the image, using GFPGAN.", {
-                    reply_to_message_id: m.message_id
-                });
+				const { message_id } = await m.reply(
+					"Processing the image, using GFPGAN.",
+					{
+						reply_to_message_id: m.message_id,
+					},
+				);
 
 				const url = m.photo.url;
 
@@ -89,8 +95,8 @@ export default async (bot) => {
 					/** if api error, restore state */
 					state[m.chat.id] = backup_state;
 					return ctx.reply(message, {
-                        reply_to_message_id: m.message_id
-                    });
+						reply_to_message_id: m.message_id,
+					});
 				}
 
 				await m.deleteMessage(message_id);
@@ -103,7 +109,7 @@ export default async (bot) => {
 					},
 					{
 						caption: "Powered by ITSROSE LIFE",
-					}
+					},
 				);
 				delete state[m.chat.id];
 				break;
@@ -114,9 +120,12 @@ export default async (bot) => {
 				delete state[m.chat.id];
 
 				await m.deleteMessage(backup_state.message_id);
-				const { message_id } = await m.reply("Processing the image, random style template.", {
-                    reply_to_message_id: m.message_id
-                });
+				const { message_id } = await m.reply(
+					"Processing the image, random style template.",
+					{
+						reply_to_message_id: m.message_id,
+					},
+				);
 
 				const init_image = m.photo.url;
 
@@ -140,8 +149,8 @@ export default async (bot) => {
 					/** if api error, restore state */
 					state[m.chat.id] = backup_state;
 					return ctx.reply(message, {
-                        reply_to_message_id: m.message_id
-                    });
+						reply_to_message_id: m.message_id,
+					});
 				}
 
 				await m.deleteMessage(message_id);
@@ -152,7 +161,7 @@ export default async (bot) => {
 					},
 					{
 						caption: "Powered by ITSROSE LIFE",
-					}
+					},
 				);
 				delete state[m.chat.id];
 				break;

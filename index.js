@@ -1,7 +1,7 @@
 import { bot } from "./lib/connection.js";
 import { commands } from "./commands.js";
 
-commands("./commands", bot)
+commands("./commands", bot);
 
 bot.launch();
 
