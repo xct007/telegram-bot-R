@@ -1,11 +1,7 @@
 import { bot } from "./lib/connection.js";
-import { messageHandler, statesHandler, custom } from "./handlers/index.js";
+import { commands } from "./commands.js";
 
-/** @see in @link {./handlers} */
-messageHandler(bot);
-statesHandler(bot);
-custom(bot);
-
+commands("./commands", bot)
 
 bot.launch();
 
@@ -14,13 +10,9 @@ console.log({
 });
 
 bot.catch((error, ctx) => {
-	console.error({
-		error,
-		ctx
-	})
-})
+	ctx.reply(error);
+});
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
-

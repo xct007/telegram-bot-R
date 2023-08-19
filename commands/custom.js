@@ -1,8 +1,8 @@
 import { Markup } from "telegraf";
 import msg from "../lib/simple.js";
-import { state } from "./database.js";
+import { state } from "../lib/database.js";
 
-export const custom = async (bot) => {
+export default async (bot) => {
 	/** here */
 	bot.command("custom", (ctx) => {
 		return ctx.replyWithPhoto(
