@@ -1,6 +1,9 @@
 import msg from "../lib/simple.js";
 import { state } from "../lib/database.js";
 
+/**
+ * @param {import("telegraf").Telegraf} bot
+ */
 export default async (bot) => {
 	/** remini */
 	bot.command("remini", async (ctx) => {

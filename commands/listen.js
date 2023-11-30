@@ -46,9 +46,7 @@ export default async (bot) => {
 						reply_to_message_id: m.message_id,
 					});
 				}
-
-				await m.deleteMessage(message_id);
-
+				/** prepare the media group */
 				const media = [];
 				const { images } = result;
 				for (const url of images) {
@@ -56,12 +54,14 @@ export default async (bot) => {
 						media: { url },
 						type: "photo",
 						caption: "Powered by ITSROSE LIFE",
+						has_spoiler: true,
 					});
 				}
 				/** send the image url */
 				await m.replyWithMediaGroup(media, {
 					reply_to_message_id: m.message_id,
 				});
+				await m.deleteMessage(message_id);
 				break;
 			}
 			case "remini": {
@@ -98,8 +98,6 @@ export default async (bot) => {
 					});
 				}
 
-				await m.deleteMessage(message_id);
-
 				const source = Buffer.from(result["base64Image"], "base64");
 
 				await m.replyWithPhoto(
@@ -109,8 +107,10 @@ export default async (bot) => {
 					{
 						caption: "Powered by ITSROSE LIFE",
 						reply_to_message_id: m.message_id,
+						has_spoiler: true,
 					}
 				);
+				await m.deleteMessage(message_id);
 				delete state[m.sender_id];
 				break;
 			}
@@ -149,8 +149,6 @@ export default async (bot) => {
 						reply_to_message_id: m.message_id,
 					});
 				}
-				console.log(result);
-				await m.deleteMessage(message_id);
 				const {
 					metadata: { style },
 				} = result;
@@ -161,8 +159,10 @@ export default async (bot) => {
 					{
 						caption: `Template: ${style}`,
 						reply_to_message_id: m.message_id,
+						has_spoiler: true,
 					}
 				);
+				await m.deleteMessage(message_id);
 				delete state[m.sender_id];
 				break;
 			}

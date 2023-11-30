@@ -2,6 +2,9 @@ import { Markup } from "telegraf";
 import msg from "../lib/simple.js";
 import { state } from "../lib/database.js";
 
+/**
+ * @param {import("telegraf").Telegraf} bot
+ */
 export default async (bot) => {
 	bot.command("turnme", async (ctx) => {
 		const m = await msg(ctx);
@@ -34,14 +37,10 @@ export default async (bot) => {
 			};
 		};
 
-		bot.action("turnme_anime", async (ctx) => handleTurnMeAction(ctx, "anime"));
-		bot.action("turnme_cyberpunk", async (ctx) =>
-			handleTurnMeAction(ctx, "cyberpunk")
-		);
-		bot.action("turnme_pixel", async (ctx) => handleTurnMeAction(ctx, "pixel"));
-		bot.action("turnme_zombie", async (ctx) => handleTurnMeAction(ctx, "zombie"));
-		bot.action("turnme_onepiece", async (ctx) =>
-			handleTurnMeAction(ctx, "onepiece")
-		);
+		bot.action("turnme_anime", (ctx) => handleTurnMeAction(ctx, "anime"));
+		bot.action("turnme_cyberpunk", (ctx) => handleTurnMeAction(ctx, "cyberpunk"));
+		bot.action("turnme_pixel", (ctx) => handleTurnMeAction(ctx, "pixel"));
+		bot.action("turnme_zombie", (ctx) => handleTurnMeAction(ctx, "zombie"));
+		bot.action("turnme_onepiece", (ctx) => handleTurnMeAction(ctx, "onepiece"));
 	});
 };
