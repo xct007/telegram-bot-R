@@ -14,7 +14,7 @@ export default async (bot) => {
 					Markup.button.callback("Plain", "plain"),
 					Markup.button.callback("Italic", "italic"),
 				]),
-			},
+			}
 		);
 	});
 };
