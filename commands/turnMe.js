@@ -19,14 +19,13 @@ export default async (bot) => {
 		);
 
 		/** it can be like this */
-		const handleTurnMeAction = async (ctx, style) => {
-			const _m = await msg(ctx);
-			await _m.deleteMessage();
+		const handleTurnMeAction = async (style) => {
+			await m.deleteMessage();
 			const { message_id } = await m.reply("Send the image now.", {
 				reply_to_message_id: m.message_id,
 			});
 
-			state[_m.sender_id] = {
+			state[m.sender_id] = {
 				action: "turnme",
 				url: "/image/turnMe",
 				parameter: {
@@ -37,10 +36,10 @@ export default async (bot) => {
 			};
 		};
 
-		bot.action("turnme_anime", (ctx) => handleTurnMeAction(ctx, "anime"));
-		bot.action("turnme_cyberpunk", (ctx) => handleTurnMeAction(ctx, "cyberpunk"));
-		bot.action("turnme_pixel", (ctx) => handleTurnMeAction(ctx, "pixel"));
-		bot.action("turnme_zombie", (ctx) => handleTurnMeAction(ctx, "zombie"));
-		bot.action("turnme_onepiece", (ctx) => handleTurnMeAction(ctx, "onepiece"));
+		bot.action("turnme_anime", () => handleTurnMeAction("anime"));
+		bot.action("turnme_cyberpunk", () => handleTurnMeAction("cyberpunk"));
+		bot.action("turnme_pixel", () => handleTurnMeAction("pixel"));
+		bot.action("turnme_zombie", () => handleTurnMeAction("zombie"));
+		bot.action("turnme_onepiece", () => handleTurnMeAction("onepiece"));
 	});
 };
