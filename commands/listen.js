@@ -39,6 +39,7 @@ export default async (bot) => {
 					})
 					.catch((e) => e?.response);
 				const { status, result, message } = data;
+				await m.deleteMessage(message_id);
 				if (!status) {
 					/** if api error, restore state */
 					state[m.sender_id] = backup_state;
@@ -47,6 +48,7 @@ export default async (bot) => {
 					});
 				}
 				/** prepare the media group */
+				await m.sendChatAction("upload_photo");
 				const media = [];
 				const { images } = result;
 				for (const url of images) {
@@ -61,7 +63,6 @@ export default async (bot) => {
 				await m.replyWithMediaGroup(media, {
 					reply_to_message_id: m.message_id,
 				});
-				await m.deleteMessage(message_id);
 				break;
 			}
 			case "remini": {
@@ -90,6 +91,7 @@ export default async (bot) => {
 					.catch((e) => e?.response);
 
 				const { status, result, message } = data;
+				await m.deleteMessage(message_id);
 				if (!status) {
 					/** if api error, restore state */
 					state[m.sender_id] = backup_state;
@@ -97,7 +99,7 @@ export default async (bot) => {
 						reply_to_message_id: m.message_id,
 					});
 				}
-
+				await m.sendChatAction("upload_photo");
 				const source = Buffer.from(result["base64Image"], "base64");
 
 				await m.replyWithPhoto(
@@ -110,7 +112,6 @@ export default async (bot) => {
 						has_spoiler: true,
 					}
 				);
-				await m.deleteMessage(message_id);
 				delete state[m.sender_id];
 				break;
 			}
@@ -142,6 +143,7 @@ export default async (bot) => {
 					.catch((e) => e?.response);
 
 				const { status, result, message } = data;
+				await m.deleteMessage(message_id);
 				if (!status) {
 					/** if api error, restore state */
 					state[m.sender_id] = backup_state;
@@ -149,6 +151,7 @@ export default async (bot) => {
 						reply_to_message_id: m.message_id,
 					});
 				}
+				await m.sendChatAction("upload_video");
 				const {
 					metadata: { style },
 				} = result;
@@ -162,7 +165,6 @@ export default async (bot) => {
 						has_spoiler: true,
 					}
 				);
-				await m.deleteMessage(message_id);
 				delete state[m.sender_id];
 				break;
 			}
