@@ -29,8 +29,8 @@ export default async (bot) => {
 						baseURL: "https://api.itsrose.life",
 						url: "/image/turnMe",
 						method: "POST",
-						params: {
-							apikey: configs["itrose_apikey"],
+						headers: {
+							Authorization: "Bearer " + configs["itrose_apikey"],
 						},
 						data: {
 							init_image,
@@ -82,8 +82,10 @@ export default async (bot) => {
 						baseURL: "https://api.itsrose.life",
 						url: "/image/unblur",
 						method: "GET",
+						headers: {
+							Authorization: "Bearer " + configs["itrose_apikey"],
+						},
 						params: {
-							apikey: configs["itrose_apikey"],
 							json: true,
 							url,
 						},
@@ -132,8 +134,8 @@ export default async (bot) => {
 						baseURL: "https://api.itsrose.life",
 						url: backup_state.url,
 						method: "POST",
-						params: {
-							apikey: configs["itrose_apikey"],
+						headers: {
+							Authorization: "Bearer " + configs["itrose_apikey"],
 						},
 						data: {
 							init_image,
