@@ -102,11 +102,10 @@ export default async (bot) => {
 					});
 				}
 				await m.sendChatAction("upload_photo");
-				const source = Buffer.from(result["base64Image"], "base64");
 
 				await m.replyWithPhoto(
 					{
-						source,
+						url: result["images"][0],
 					},
 					{
 						caption: "Powered by ITSROSE LIFE",
