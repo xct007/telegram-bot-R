@@ -175,8 +175,14 @@ export default async (bot) => {
 			}
 		}
 	});
-	bot.on("text", async (ctx) => {
-		const m = await msg(ctx);
-		getTiktokVideoFromText(m);
-	});
+	bot.hears(
+		[
+			/https:\/\/(?:m|www|vm)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video)\/|\?shareId=|&item_id=)(\d+))|\w+)/gm,
+		],
+		async (ctx) => {
+			/** This is aliase for ctx */
+			const m = await msg(ctx);
+			await getTiktokVideoFromText(m);
+		}
+	);
 };
