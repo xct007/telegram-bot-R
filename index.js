@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { bot } from "./lib/connection.js";
 import { commands } from "./commands.js";
 
