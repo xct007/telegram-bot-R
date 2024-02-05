@@ -2,7 +2,11 @@ import axios from "axios";
 import msg from "../lib/simple.js";
 import { state } from "../lib/database.js";
 import configs from "../config.js";
+import { getTiktokVideoFromText } from "../lib/tiktok.js";
 
+/**
+ * @param {import("telegraf").Telegraf} bot
+ */
 export default async (bot) => {
 	bot.on("photo", async (ctx) => {
 		/** This is aliase for ctx */
@@ -170,5 +174,9 @@ export default async (bot) => {
 				break;
 			}
 		}
+	});
+	bot.on("text", async (ctx) => {
+		const m = await msg(ctx);
+		getTiktokVideoFromText(m);
 	});
 };
