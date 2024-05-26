@@ -30,7 +30,7 @@ export default async (bot) => {
 
 				const { data } = await axios
 					.request({
-						baseURL: "https://api.itsrose.life",
+						baseURL: "https://api.itsrose.rest",
 						url: "/image/turnMe",
 						method: "POST",
 						headers: {
@@ -59,7 +59,7 @@ export default async (bot) => {
 					media.push({
 						media: { url },
 						type: "photo",
-						caption: "Powered by ITSROSE LIFE",
+						caption: "Powered by ItsRose API",
 						has_spoiler: true,
 					});
 				}
@@ -83,7 +83,7 @@ export default async (bot) => {
 
 				const { data } = await axios
 					.request({
-						baseURL: "https://api.itsrose.life",
+						baseURL: "https://api.itsrose.rest",
 						url: "/image/unblur",
 						method: "GET",
 						headers: {
@@ -112,7 +112,7 @@ export default async (bot) => {
 						url: result["images"][0],
 					},
 					{
-						caption: "Powered by ITSROSE LIFE",
+						caption: "Powered by ItsRose API",
 						reply_to_message_id: m.message_id,
 						has_spoiler: true,
 					}
@@ -134,7 +134,7 @@ export default async (bot) => {
 
 				const { data } = await axios
 					.request({
-						baseURL: "https://api.itsrose.life",
+						baseURL: "https://api.itsrose.rest",
 						url: backup_state.url,
 						method: "POST",
 						headers: {
